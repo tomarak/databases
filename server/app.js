@@ -1,5 +1,9 @@
 var express = require('express');
 var db = require('./db');
+var actions = require('./request-handler');
+var utils = require('./utils');
+var mysql = require('mysql');
+
 
 // Middleware
 var morgan = require('morgan');
@@ -30,3 +34,9 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
+var dbConnection = mysql.createConnection({
+  user: "root",
+  password: "",
+  database: "chat"
+});
+dbConnection.connect();
