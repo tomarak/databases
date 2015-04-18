@@ -1,8 +1,8 @@
 var express = require('express');
 var db = require('./db');
-var actions = require('./request-handler');
-var utils = require('./utils');
-var mysql = require('mysql');
+var actions = require('./request-handler'); //
+var utils = require('./utils'); //
+var mysql = require('mysql'); //
 
 
 // Middleware
@@ -23,7 +23,7 @@ app.use(morgan('dev'));
 app.use(parser.json());
 
 // Set up our routes
-app.use("/classes", router);
+app.use("/classes", router); //users or messages
 
 // Serve the client files
 app.use(express.static(__dirname + "/../client"));
@@ -34,7 +34,7 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
-var dbConnection = mysql.createConnection({
+var dbConnection = mysql.createConnection({ //
   user: "root",
   password: "",
   database: "chat"
